@@ -1,0 +1,12 @@
+SELECT 
+    v.data_venda AS "Data da Venda", 
+    v.valor AS "Valor", 
+    v.desconto AS "Desconto", 
+    v.valor_final AS "Valor Final", 
+    e.nome AS "Empregado que realizou a venda"
+FROM 
+    vendas v
+JOIN 
+    empregados e ON v.empregado_id = e.id
+ORDER BY 
+    v.data_venda DESC;
