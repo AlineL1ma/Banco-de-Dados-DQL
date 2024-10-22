@@ -1,0 +1,12 @@
+SELECT 
+    p.nome AS "Nome Produto", 
+    COUNT(v.id) AS "Quantidade (Total) Vendas", 
+    SUM(v.valor_total) AS "Valor Total Recebido pela Venda do Produto"
+FROM 
+    produtos p
+JOIN 
+    vendas v ON p.id = v.produto_id
+GROUP BY 
+    p.id
+ORDER BY 
+    COUNT(v.id) DESC;
