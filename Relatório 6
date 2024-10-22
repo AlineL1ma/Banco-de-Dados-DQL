@@ -1,0 +1,15 @@
+SELECT 
+    p.nome AS "Nome do Pet", 
+    s.data_servico AS "Data do Serviço", 
+    s.nome_servico AS "Nome do Serviço", 
+    s.quantidade AS "Quantidade", 
+    s.valor AS "Valor", 
+    e.nome AS "Empregado que realizou o Serviço"
+FROM 
+    servicos s
+JOIN 
+    pets p ON s.pet_id = p.id
+JOIN 
+    empregados e ON s.empregado_id = e.id
+ORDER BY 
+    s.data_servico DESC;
