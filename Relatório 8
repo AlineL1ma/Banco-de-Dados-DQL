@@ -1,0 +1,13 @@
+SELECT 
+    s.nome AS "Nome do Serviço", 
+    COUNT(v.id) AS "Quantidade Vendas", 
+    SUM(v.valor_total) AS "Total Valor Vendido"
+FROM 
+    servicos s
+JOIN 
+    vendas v ON s.id = v.servico_id
+GROUP BY 
+    s.id
+ORDER BY 
+    COUNT(v.id) DESC
+LIMIT 10;
