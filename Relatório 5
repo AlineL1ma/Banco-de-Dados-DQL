@@ -1,0 +1,18 @@
+SELECT 
+    e.nome AS "Nome Empregado", 
+    e.cpf AS "CPF Empregado", 
+    e.sexo AS "Sexo", 
+    e.salario AS "Salário", 
+    COUNT(v.id) AS "Quantidade Vendas com Serviço", 
+    SUM(v.valor_total) AS "Total Valor Vendido com Serviço", 
+    SUM(v.comissao) AS "Total Comissão das Vendas com Serviço"
+FROM 
+    empregados e
+LEFT JOIN 
+    vendas v ON e.id = v.empregado_id
+WHERE 
+    v.tipo = 'Serviço'
+GROUP BY 
+    e.id
+ORDER BY 
+    COUNT(v.id) DESC;
