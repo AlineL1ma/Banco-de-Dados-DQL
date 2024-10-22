@@ -1,0 +1,10 @@
+SELECT 
+    v.data_venda AS "Data Venda", 
+    COUNT(v.id) AS "Quantidade de Vendas", 
+    SUM(v.valor_total) AS "Valor Total Venda"
+FROM 
+    vendas v
+GROUP BY 
+    v.data_venda
+ORDER BY 
+    v.data_venda DESC;
