@@ -1,0 +1,13 @@
+SELECT 
+    d.nome AS "Departamento", 
+    COUNT(e.id) AS "Quantidade de Empregados", 
+    AVG(e.salario) AS "Média Salarial", 
+    AVG(e.comissao) AS "Média da Comissão"
+FROM 
+    departamentos d
+LEFT JOIN 
+    empregados e ON e.departamento_id = d.id
+GROUP BY 
+    d.nome
+ORDER BY 
+    d.nome;
